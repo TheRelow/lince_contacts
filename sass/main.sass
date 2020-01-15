@@ -1,0 +1,199 @@
+$red: #e3241c
+$circe : 'Circe Regular'
+
+@mixin placeholder 
+  &::-webkit-input-placeholder
+  	@content
+  &:-moz-placeholder
+  	@content
+  &::-moz-placeholder
+  	@content
+  &:-ms-input-placeholder
+  	@content
+
+
+%flex
+	display: -webkit-flex
+	display: -moz-flex
+	display: -ms-flex
+	display: -o-flex
+	display: flex
+
+*
+	margin: 0
+	padding: 0
+	box-sizing: border-box
+	outline: none
+	text-decoration: none
+
+body
+	overflow: hidden
+	max-height: 100vh
+	font-family: $circe
+
+.bg-with-lines
+	position: absolute
+	@extend %flex
+	width: 100vw
+	height: 100vh
+	&__line
+		height: 100%
+		width: calc(100% / 7)
+		border-right: 1px solid rgba(0, 0, 0, 0.03)
+	&__line:last-child
+		border-right: none
+
+.content-and-left-menu
+	@extend %flex
+	width: 100vw
+	height: 100vh
+	&__left-menu
+		height: 100%
+		width: calc(100% / 7)
+	&__content
+		@extend %flex
+		flex-direction: column
+		justify-content: flex-end
+		height: 100%
+		width: calc(100% / 7 * 6)
+		padding-left: calc(100% / 7)
+	&__slider
+		width: 100%
+		position: absolute
+		top: 50%
+		transform: translate(0, -50%)
+		.slide
+			padding-right: calc(100% / 7)
+	&__contacts
+		height: 26.7vh
+.left-menu
+	@extend %flex
+	justify-content: center
+	align-items: center
+	&__wrapper
+		position: relative
+		@extend %flex
+		flex-direction: column
+		justify-content: space-between
+		align-items: center
+		height: 83%
+		width: 100%
+		margin: auto 0
+	&__top
+		width: 2.44vw
+	&__logo
+		width: 2.44vw
+	&__center
+		position: absolute
+		top: 50%
+		left: 50%
+		transform: translate(-50%, -50%)
+	&__menu-btn
+		position: relative
+		height: 50px
+		width: 50px
+		border-radius: 50%
+		background-color: #fb2c41
+		span
+			position: absolute
+			top: 50%
+			left: 50%
+			transform: translate(-50%, -50%)
+			height: 2px
+			width: 18px
+			background: #fff
+			&:before
+				content: ''
+				position: absolute
+				top: calc(50% - 6px)
+				left: 50%
+				transform: translate(-50%, -50%)
+				height: 2px
+				width: 18px
+				background: #fff
+			&:after
+				content: ''
+				position: absolute
+				top: calc(50% + 7px)
+				left: 50%
+				transform: translate(-50%, -50%)
+				height: 2px
+				width: 18px
+				background: #fff
+	&__lang
+		margin-bottom: 50px
+		transform: rotate(-90deg)
+		font-size: 1.625vh
+	&__social
+		@extend %flex
+		flex-direction: column
+		align-items: center
+		a
+			display: block
+			margin-bottom: 20px
+			&:last-child
+				margin-bottom: none
+		&-behance img
+			width: 1vw
+		&-facebook img
+			height: 1vw
+		&-inst img
+			height: 1vw
+
+.contact-target-btn
+	position: relative
+	@extend %flex
+	&__target-btn-area
+		@extend %flex
+		flex-direction: column
+	&__target-btn
+		height: 60px
+		color: #000000
+		opacity: 0.3
+		font-size: 2.2vw
+		font-weight: 400
+		line-height: 52px
+		text-align: right
+		margin-bottom: -15px
+		&-active
+			opacity: 1
+	&__content
+		@extend %flex
+		flex-grow: 1
+	&__address
+		height: 60px
+		color: #000000
+		font-size: 2.2vw
+		font-weight: 400
+		line-height: 52px
+	&__line
+		width: 4.16666vw
+		height: 1px
+		background: #000
+		opacity: 0.3
+		margin-left: 49px
+		margin-right: 32px
+		margin-top: 30px
+	&__btn
+		height: 26px
+		color: #000000
+		font-size: 0.625vw
+		font-weight: 400
+		line-height: 26px
+		padding-top: 17px
+	&__top-text
+		position: absolute
+		top: -70px
+		left: calc(100vw / 7)
+		width: 316px
+		height: 36px
+		opacity: 0.3
+		color: #000000
+		font-size: 0.625vw
+		font-weight: 400
+		line-height: 18px
+
+@media (max-height: 670px)
+	.left-menu__center
+		position: static
+		transform: none
